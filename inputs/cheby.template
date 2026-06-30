@@ -1,0 +1,63 @@
+#include "../inputs/target.h"
+#include <cmath>
+
+#define SQRT_DBL_EPSILON   1.4901161193847656e-08
+
+double adaptation(const double x, const double a, const double b) {
+  double s = 2*x;
+  double c = 0.0;
+  double terms[2] = {-a, -b};
+  double tmp;
+  for (int i = 0; i < 2; i++) {
+    tmp = s + terms[i];
+    if (fabs(s) >= fabs(terms[i]))
+      c = c + ((s-tmp) + terms[i]);
+    else
+      c = c + ((terms[i]-tmp) + s);
+    s = tmp;
+  }
+  s = s + c;
+  return s / (b-a);
+}
+
+double clenshaw_eval(const double ux, const double coef[], const int nums) {
+  double d = 0.0;
+  double dd = 0.0;
+
+  double ux2 = 2.0*ux;
+  double tmp;
+  // Clenshaw method
+  for (int i = nums-1; i>=1; i--) {
+    tmp = d;
+    d = ux2*d - dd + coef[i];
+    dd = tmp;
+  }
+  d = ux*d - dd + coef[0];
+  return d;
+}
+
+/* __TEMPLATE_START__ */
+double patched___PATCH_NO__(double x) {
+  /* __PATCH_IS_VALID__ */
+  // __PATCH_MODE__
+  const static double lbound = __PATCH_LEFT_BOUND__;
+  const static double rbound = __PATCH_RIGHT_BOUND__;
+  const static int nums = __PATCH_TERMS__;
+  const static double coef[__PATCH_TERMS__] = {
+    __PATCH_COEFFICIENT__
+  };
+  if (x >= lbound && x <= rbound) {
+    double ux = adaptation(x, lbound, rbound);
+    if (__PATCH_ACC_BOOL__ && fabs(x) < SQRT_DBL_EPSILON) {
+      double c1 = __PATCH_ACC_C1__;
+      double c2 = __PATCH_ACC_C2__;
+      return ux*(c1 + ux*c2);
+    }
+    else
+      return clenshaw_eval(ux, coef, nums);
+  }
+  else {
+    return __PATCH_NO__(x);
+  }
+}
+/* __TEMPLATE_END__ */
