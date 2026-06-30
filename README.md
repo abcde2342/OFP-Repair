@@ -100,7 +100,7 @@ The arguments are:
 
 ## Case study
 
-You the reproduce the fixing process for the three GSL bugs. 
+You the reproduce the fixing process for the three GSL functions. 
 
 ```
 python3 gsl_case_study.py
