@@ -1,12 +1,13 @@
-CXX=clang++-11
-LD=clang++-11
+CXX=clang++-14
+LD=clang++-14
 CXXFLAGS=-std=c++14 -O2 -fPIC -fno-rtti
 
 GSLCFG=gsl-config
 GSLCFLAGS=$(shell $(GSLCFG) --cflags)
 GSLLDFLAGS=$(shell $(GSLCFG) --libs)
 
-CLANG=clang-11
+CLANG=clang-14
+OMPLDFLAGS=-L/usr/lib/llvm-14/lib -lomp
 CLANGFLAGS=-fPIC -fno-rtti
 
 OMPFLAGS=-fopenmp
