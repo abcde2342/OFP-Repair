@@ -100,7 +100,7 @@ The arguments are:
 
 ## Case study
 
-You the reproduce the fixing process for the GSL functions. 
+You can reproduce the fixing process for the GSL functions. 
 
 ```
 python3 gsl_case_study.py
