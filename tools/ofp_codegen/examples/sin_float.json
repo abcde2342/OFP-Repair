@@ -1,0 +1,138 @@
+{
+  "name": "sin_float",
+  "expression": "sin(x)",
+  "symbolic_expression": "sin(x)",
+  "variable": "x",
+  "requested_center": "0.1",
+  "center_literal": "0.100000001f",
+  "center_exact": "13421773/134217728",
+  "center_bits": "3dcccccd",
+  "centering_policy": "Derive at the exact representable value of the emitted center, not at an unrepresentable mathematical constant.",
+  "requested_interval": [
+    "0.09",
+    "0.11"
+  ],
+  "interval_literals": [
+    "0.0900000036f",
+    "0.109999999f"
+  ],
+  "interval_policy": "Bounds rounded inward; inclusive tests; NaN/infinity/outside inputs call the provided original function.",
+  "degree": 10,
+  "dtype": "float",
+  "series": "sin(13421773/134217728) + u*cos(13421773/134217728) - u**2*sin(13421773/134217728)/2 - u**3*cos(13421773/134217728)/6 + u**4*sin(13421773/134217728)/24 + u**5*cos(13421773/134217728)/120 - u**6*sin(13421773/134217728)/720 - u**7*cos(13421773/134217728)/5040 + u**8*sin(13421773/134217728)/40320 + u**9*cos(13421773/134217728)/362880 - u**10*sin(13421773/134217728)/3628800 + O(u**11)",
+  "series_variable": "u = input - exact emitted center",
+  "generation_method": "SymPy pre-truncation meromorphic eligibility and two-sided local series; exact coefficient extraction; same-type Horner C++ emission",
+  "coefficients": [
+    {
+      "degree": 0,
+      "symbolic": "sin(13421773/134217728)",
+      "literal": "0.0998334214f",
+      "bits": "3dcc7577",
+      "underflowed": false
+    },
+    {
+      "degree": 1,
+      "symbolic": "cos(13421773/134217728)",
+      "literal": "0.995004177f",
+      "bits": "3f7eb898",
+      "underflowed": false
+    },
+    {
+      "degree": 2,
+      "symbolic": "-sin(13421773/134217728)/2",
+      "literal": "-0.0499167107f",
+      "bits": "bd4c7577",
+      "underflowed": false
+    },
+    {
+      "degree": 3,
+      "symbolic": "-cos(13421773/134217728)/6",
+      "literal": "-0.165834025f",
+      "bits": "be29d065",
+      "underflowed": false
+    },
+    {
+      "degree": 4,
+      "symbolic": "sin(13421773/134217728)/24",
+      "literal": "0.00415972574f",
+      "bits": "3b884e4f",
+      "underflowed": false
+    },
+    {
+      "degree": 5,
+      "symbolic": "cos(13421773/134217728)/120",
+      "literal": "0.00829170179f",
+      "bits": "3c07d9eb",
+      "underflowed": false
+    },
+    {
+      "degree": 6,
+      "symbolic": "-sin(13421773/134217728)/720",
+      "literal": "-0.000138657531f",
+      "bits": "b9116499",
+      "underflowed": false
+    },
+    {
+      "degree": 7,
+      "symbolic": "-cos(13421773/134217728)/5040",
+      "literal": "-0.000197421468f",
+      "bits": "b94f02ec",
+      "underflowed": false
+    },
+    {
+      "degree": 8,
+      "symbolic": "sin(13421773/134217728)/40320",
+      "literal": "2.47602725e-06f",
+      "bits": "362629d3",
+      "underflowed": false
+    },
+    {
+      "degree": 9,
+      "symbolic": "cos(13421773/134217728)/362880",
+      "literal": "2.74196464e-06f",
+      "bits": "36380298",
+      "underflowed": false
+    },
+    {
+      "degree": 10,
+      "symbolic": "-sin(13421773/134217728)/3628800",
+      "literal": "-2.75114136e-08f",
+      "bits": "b2ec523d",
+      "underflowed": false
+    }
+  ],
+  "validation_status": "generated_unvalidated_interval",
+  "limitations": [
+    "The caller supplies expression, center, degree and applicability interval; the tool does not infer them.",
+    "Only supported one-variable, real, ordinary polynomial expansions are handled. No arbitrary C++ parsing, multivariable extraction, general asymptotic solver or automatic special-function mapping.",
+    "SymPy must establish local meromorphic eligibility before truncation; unknown eligibility is rejected, including some analytic functions such as erf/erfc. This is not a certificate for the whole supplied interval or the unsimplified expression domain.",
+    "Coefficient constants are evaluated offline; the emitted polynomial uses only the selected float/double type.",
+    "Non-rational coefficient rounding must agree at 120 and 180 decimal digits; this is not a certified transcendental rounding proof.",
+    "The callback preserves the original implementation outside the interval. Caller must supply a non-null function of the same input/output type.",
+    "The local approximation may supply a removable-singularity limit; no claim of preserving errno, floating exceptions or signed-zero behavior.",
+    "Sampling/compilation validation is separate; a supplied interval does not prove an error bound."
+  ],
+  "header_sha256": "085d03b97ff067dbc914fdde805bdc3d6ed89e26c22f2f80056fa1f23312a803",
+  "generator_sha256": "f859d6ae58765fe79950ab7ae554b4db2bb99bac2626753b8801cc67927194bf",
+  "sympy_version": "1.14.0",
+  "python_version": "3.12.9 (tags/v3.12.9:fdb8142, Feb  4 2025, 15:27:58) [MSC v.1942 64 bit (AMD64)]",
+  "generated_at": "2026-10-28T03:24:36.632126+00:00",
+  "command": [
+    "tools/ofp_codegen/generate.py",
+    "--expression",
+    "sin(x)",
+    "--center",
+    "0.1",
+    "--degree",
+    "10",
+    "--interval",
+    "0.09",
+    "0.11",
+    "--dtype",
+    "float",
+    "--name",
+    "sin_float",
+    "--output",
+    "tools/ofp_codegen/examples/sin_float.hpp"
+  ]
+}

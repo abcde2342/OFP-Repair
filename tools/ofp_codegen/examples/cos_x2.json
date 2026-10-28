@@ -1,0 +1,138 @@
+{
+  "name": "cos_x2",
+  "expression": "(1-cos(x))/x**2",
+  "symbolic_expression": "(1 - cos(x))/x**2",
+  "variable": "x",
+  "requested_center": "0",
+  "center_literal": "0.0",
+  "center_exact": "0",
+  "center_bits": "0000000000000000",
+  "centering_policy": "Derive at the exact representable value of the emitted center, not at an unrepresentable mathematical constant.",
+  "requested_interval": [
+    "-0.01",
+    "0.01"
+  ],
+  "interval_literals": [
+    "-0.0099999999999999985",
+    "0.0099999999999999985"
+  ],
+  "interval_policy": "Bounds rounded inward; inclusive tests; NaN/infinity/outside inputs call the provided original function.",
+  "degree": 10,
+  "dtype": "double",
+  "series": "1/2 - u**2/24 + u**4/720 - u**6/40320 + u**8/3628800 - u**10/479001600 + O(u**11)",
+  "series_variable": "u = input - exact emitted center",
+  "generation_method": "SymPy pre-truncation meromorphic eligibility and two-sided local series; exact coefficient extraction; same-type Horner C++ emission",
+  "coefficients": [
+    {
+      "degree": 0,
+      "symbolic": "1/2",
+      "literal": "0.5",
+      "bits": "3fe0000000000000",
+      "underflowed": false
+    },
+    {
+      "degree": 1,
+      "symbolic": "0",
+      "literal": "0.0",
+      "bits": "0000000000000000",
+      "underflowed": false
+    },
+    {
+      "degree": 2,
+      "symbolic": "-1/24",
+      "literal": "-0.041666666666666664",
+      "bits": "bfa5555555555555",
+      "underflowed": false
+    },
+    {
+      "degree": 3,
+      "symbolic": "0",
+      "literal": "0.0",
+      "bits": "0000000000000000",
+      "underflowed": false
+    },
+    {
+      "degree": 4,
+      "symbolic": "1/720",
+      "literal": "0.0013888888888888889",
+      "bits": "3f56c16c16c16c17",
+      "underflowed": false
+    },
+    {
+      "degree": 5,
+      "symbolic": "0",
+      "literal": "0.0",
+      "bits": "0000000000000000",
+      "underflowed": false
+    },
+    {
+      "degree": 6,
+      "symbolic": "-1/40320",
+      "literal": "-2.4801587301587302e-05",
+      "bits": "befa01a01a01a01a",
+      "underflowed": false
+    },
+    {
+      "degree": 7,
+      "symbolic": "0",
+      "literal": "0.0",
+      "bits": "0000000000000000",
+      "underflowed": false
+    },
+    {
+      "degree": 8,
+      "symbolic": "1/3628800",
+      "literal": "2.7557319223985888e-07",
+      "bits": "3e927e4fb7789f5c",
+      "underflowed": false
+    },
+    {
+      "degree": 9,
+      "symbolic": "0",
+      "literal": "0.0",
+      "bits": "0000000000000000",
+      "underflowed": false
+    },
+    {
+      "degree": 10,
+      "symbolic": "-1/479001600",
+      "literal": "-2.08767569878681e-09",
+      "bits": "be21eed8eff8d898",
+      "underflowed": false
+    }
+  ],
+  "validation_status": "generated_unvalidated_interval",
+  "limitations": [
+    "The caller supplies expression, center, degree and applicability interval; the tool does not infer them.",
+    "Only supported one-variable, real, ordinary polynomial expansions are handled. No arbitrary C++ parsing, multivariable extraction, general asymptotic solver or automatic special-function mapping.",
+    "SymPy must establish local meromorphic eligibility before truncation; unknown eligibility is rejected, including some analytic functions such as erf/erfc. This is not a certificate for the whole supplied interval or the unsimplified expression domain.",
+    "Coefficient constants are evaluated offline; the emitted polynomial uses only the selected float/double type.",
+    "Non-rational coefficient rounding must agree at 120 and 180 decimal digits; this is not a certified transcendental rounding proof.",
+    "The callback preserves the original implementation outside the interval. Caller must supply a non-null function of the same input/output type.",
+    "The local approximation may supply a removable-singularity limit; no claim of preserving errno, floating exceptions or signed-zero behavior.",
+    "Sampling/compilation validation is separate; a supplied interval does not prove an error bound."
+  ],
+  "header_sha256": "6e09aaf47260a90d166313d8d9947a985dbe101f09f686c086c66f0ca2d1d728",
+  "generator_sha256": "f859d6ae58765fe79950ab7ae554b4db2bb99bac2626753b8801cc67927194bf",
+  "sympy_version": "1.14.0",
+  "python_version": "3.12.9 (tags/v3.12.9:fdb8142, Feb  4 2025, 15:27:58) [MSC v.1942 64 bit (AMD64)]",
+  "generated_at": "2026-10-28T03:24:35.611773+00:00",
+  "command": [
+    "tools/ofp_codegen/generate.py",
+    "--expression",
+    "(1-cos(x))/x**2",
+    "--center",
+    "0",
+    "--degree",
+    "10",
+    "--interval",
+    "-0.01",
+    "0.01",
+    "--dtype",
+    "double",
+    "--name",
+    "cos_x2",
+    "--output",
+    "tools/ofp_codegen/examples/cos_x2.hpp"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "name": "project_cos_x2",
+  "expression": "(1-cos(x))/x**2",
+  "variable": "x",
+  "center": "0",
+  "degree": 10,
+  "interval": ["-0.01", "0.01"],
+  "dtype": "double",
+  "target": {
+    "path": "inputs/targets.cpp",
+    "function": "cos_x2",
+    "definition": "double cos_x2(double x) {\n    double val = (1 - cos(x)) / (x*x);\n    return val;\n}"
+  }
+}

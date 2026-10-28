@@ -1,0 +1,5 @@
+# Generated repair and validation artifacts
+/runs/
+/ofp_generated/
+__pycache__/
+*.pyc
