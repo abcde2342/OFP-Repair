@@ -2,6 +2,24 @@
 
 This repository contains the data, code, and results for this work, as well as instructions on how to generate the results. This project is based on ACESO: https://bitbucket.org/FP-Aceso/aceso/src/master/
 
+## Automated patch generation
+
+The [symbolic patch generator](tools/ofp_codegen/README.en.md) takes an explicit
+JSON specification (expression, expansion point/degree/interval, floating type,
+and source function) and automatically emits a same-precision C++ repair,
+an applicable `patch.diff`, a source preview and a coefficient/provenance record.
+
+```bash
+python -m pip install -r tools/ofp_codegen/requirements.txt
+python tools/ofp_codegen/repair.py --spec tools/ofp_codegen/examples/cos_x2.input.json --project-root . --output runs/cos_x2-patch
+python tools/ofp_codegen/validate.py --cxx c++ --output runs/codegen-validation
+```
+
+The source is not modified during generation. Expansion settings and the repair
+location are explicit user inputs; the tool does not infer them or claim automatic
+coverage of all 57 existing repairs. See the linked documentation for exact input
+and output contracts, application instructions, validation and limitations.
+
 # Build the Docker Environment
 
 Build the image from the repository root:

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "name": "cos_x2",
+  "expression": "(1-cos(x))/x**2",
+  "variable": "x",
+  "center": "0",
+  "degree": 10,
+  "interval": ["-0.01", "0.01"],
+  "dtype": "double",
+  "target": {
+    "path": "tools/ofp_codegen/examples/original.cpp",
+    "function": "cos_x2",
+    "definition": "double cos_x2(double x) {\n    return (1.0 - std::cos(x)) / (x * x);\n}"
+  }
+}
