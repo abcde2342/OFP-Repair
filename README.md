@@ -30,7 +30,7 @@ make
 
 ### Generate `condition_number_func_list.csv`
 
-This file computes condition numbers with different step for all 63 functions.
+This file computes condition numbers with different step for all 63 functions. The additional 50 FPCC/GSL cases are provided separately below.
 
 ```bash
 python3 condition_number.py
